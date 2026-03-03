@@ -19,7 +19,8 @@ NODE_BIN ?= $(firstword $(wildcard /usr/local/opt/node@22/bin/node /opt/homebrew
 NODE_DIR := $(if $(NODE_BIN),$(dir $(NODE_BIN)))
 PATH_FALLBACK ?= $(NODE_DIR):/opt/homebrew/bin:/usr/local/bin:$(HOME)/Library/pnpm:$(HOME)/.volta/bin:$(HOME)/.local/bin
 PNPM_RUN := env PATH="$(PATH_FALLBACK):$$PATH" $(PNPM)
-OPENCLAW_RUN := env PATH="$(PATH_FALLBACK):$$PATH" "$(NODE_BIN)" scripts/run-node.mjs
+OPENCLAW_ENTRY ?= dist/entry.js
+OPENCLAW_RUN := env PATH="$(PATH_FALLBACK):$$PATH" "$(NODE_BIN)" $(OPENCLAW_ENTRY)
 
 .PHONY: help node-check git-setup sync-main branch status install build test check tsgo format format-fix audit dev setup gateway gateway-strict health doctor doctor-fix model-show model-set channels-status telegram-add pairing-list pairing-approve telegram-test-send
 
