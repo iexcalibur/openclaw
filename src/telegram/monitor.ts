@@ -245,7 +245,10 @@ export async function monitorTelegramProvider(opts: MonitorTelegramOpts = {}) {
         await withTelegramApiErrorLogging({
           operation: "deleteWebhook",
           runtime: opts.runtime,
-          fn: () => bot.api.deleteWebhook({ drop_pending_updates: false }),
+          fn: () =>
+            bot.api.deleteWebhook({
+              drop_pending_updates: account.config.dropPendingUpdatesOnStart === true,
+            }),
         });
         webhookCleared = true;
         return "ready";

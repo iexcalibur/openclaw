@@ -198,6 +198,7 @@ WhatsApp runs through the gateway's web channel (Baileys Web). It starts automat
       webhookUrl: "https://example.com/telegram-webhook",
       webhookSecret: "secret",
       webhookPath: "/telegram-webhook",
+      dropPendingUpdatesOnStart: false,
     },
   },
 }
@@ -206,6 +207,7 @@ WhatsApp runs through the gateway's web channel (Baileys Web). It starts automat
 - Bot token: `channels.telegram.botToken` or `channels.telegram.tokenFile`, with `TELEGRAM_BOT_TOKEN` as fallback for the default account.
 - Optional `channels.telegram.defaultAccount` overrides default account selection when it matches a configured account id.
 - `configWrites: false` blocks Telegram-initiated config writes (supergroup ID migrations, `/config set|unset`).
+- `dropPendingUpdatesOnStart: true` drops queued updates at startup so messages sent during downtime are not replayed when polling resumes.
 - Telegram stream previews use `sendMessage` + `editMessageText` (works in direct and group chats).
 - Retry policy: see [Retry policy](/concepts/retry).
 

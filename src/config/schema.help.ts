@@ -1396,6 +1396,8 @@ export const FIELD_HELP: Record<string, string> = {
     "Override Node autoSelectFamily for Telegram (true=enable, false=disable).",
   "channels.telegram.timeoutSeconds":
     "Max seconds before Telegram API requests are aborted (default: 500 per grammY).",
+  "channels.telegram.dropPendingUpdatesOnStart":
+    "When true, drop queued Telegram updates at gateway startup before polling begins. Use this to ignore messages that arrived while the gateway was offline.",
   "channels.whatsapp.dmPolicy":
     'Direct message access control ("pairing" recommended). "open" requires channels.whatsapp.allowFrom=["*"].',
   "channels.whatsapp.selfChatMode": "Same-phone setup (bot uses your personal WhatsApp number).",

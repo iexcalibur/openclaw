@@ -312,6 +312,20 @@ describe("monitorTelegramProvider (grammY)", () => {
     expect(order).toEqual(["deleteWebhook", "run"]);
   });
 
+  it("drops pending updates on startup when configured", async () => {
+    const abort = new AbortController();
+    loadConfig.mockReturnValue({
+      agents: { defaults: { maxConcurrent: 2 } },
+      channels: { telegram: { dropPendingUpdatesOnStart: true } },
+    });
+    api.deleteWebhook.mockReset();
+    mockRunOnceAndAbort(abort);
+
+    await monitorTelegramProvider({ token: "tok", abortSignal: abort.signal });
+
+    expect(api.deleteWebhook).toHaveBeenCalledWith({ drop_pending_updates: true });
+  });
+
   it("retries recoverable deleteWebhook failures before polling", async () => {
     const abort = new AbortController();
     const cleanupError = makeRecoverableFetchError();

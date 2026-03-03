@@ -137,6 +137,11 @@ export type TelegramAccountConfig = {
   webhookHost?: string;
   /** Local webhook listener bind port (default: 8787). */
   webhookPort?: number;
+  /**
+   * If true, drop pending Telegram updates when startup clears webhook mode
+   * before polling begins. Default: false (preserve queued updates).
+   */
+  dropPendingUpdatesOnStart?: boolean;
   /** Per-action tool gating (default: true for all). */
   actions?: TelegramActionConfig;
   /**

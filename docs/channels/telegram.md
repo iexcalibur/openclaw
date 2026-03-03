@@ -770,6 +770,7 @@ Primary reference:
 - `channels.telegram.webhookPath`: local webhook path (default `/telegram-webhook`).
 - `channels.telegram.webhookHost`: local webhook bind host (default `127.0.0.1`).
 - `channels.telegram.webhookPort`: local webhook bind port (default `8787`).
+- `channels.telegram.dropPendingUpdatesOnStart`: if `true`, drop queued updates on startup before polling begins (useful when you do not want offline backlog replay).
 - `channels.telegram.actions.reactions`: gate Telegram tool reactions.
 - `channels.telegram.actions.sendMessage`: gate Telegram tool message sends.
 - `channels.telegram.actions.deleteMessage`: gate Telegram tool message deletes.

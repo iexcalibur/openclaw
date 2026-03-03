@@ -220,6 +220,12 @@ export const TelegramAccountSchemaBase = z
       .describe(
         "Local bind port for the webhook listener. Defaults to 8787; set to 0 to let the OS assign an ephemeral port.",
       ),
+    dropPendingUpdatesOnStart: z
+      .boolean()
+      .optional()
+      .describe(
+        "If true, drop pending Telegram updates when startup clears webhook mode before polling begins. Default: false (preserve queued updates).",
+      ),
     actions: z
       .object({
         reactions: z.boolean().optional(),

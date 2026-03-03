@@ -677,6 +677,7 @@ export const FIELD_LABELS: Record<string, string> = {
   "channels.telegram.retry.jitter": "Telegram Retry Jitter",
   "channels.telegram.network.autoSelectFamily": "Telegram autoSelectFamily",
   "channels.telegram.timeoutSeconds": "Telegram API Timeout (seconds)",
+  "channels.telegram.dropPendingUpdatesOnStart": "Telegram Drop Pending Updates on Start",
   "channels.telegram.capabilities.inlineButtons": "Telegram Inline Buttons",
   "channels.whatsapp.dmPolicy": "WhatsApp DM Policy",
   "channels.whatsapp.selfChatMode": "WhatsApp Self-Phone Mode",
